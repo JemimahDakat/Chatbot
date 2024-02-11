@@ -1,67 +1,148 @@
-*{                                                           /*general css for the entire page*/
-    padding:0;
-    margin:0;
-}
-
-.header{
-    height:100vh;
-    width:100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url("percygee.jpg");  /*makes the background image have a darker appearance  picture from: https://pixabay.com/*/  
-    background-size: cover;
-    background-position: center;
-}
-
-
-h1{
-    text-align: center;
-    font-size: 50px;
-    color:aliceblue;
-}
-
-nav{
-    display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-links{
-    flex:1;
-    text-align:center;
-    background-color: rgb(35, 60, 189);
-}
-
-.nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position:relative;
-
-}
-
-.nav-links ul li a{
-    color: white;
-    text-decoration:none;
-    font-style: Georgia,serif;
-}
-
-.nav-links ul li:hover{
-    background: rgb(16, 16, 99);
-    transition: 0.5s;
-}
-
-.search{
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #84fab0;
     
-}
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    }
+    .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #84fab0;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
+    }
 
-.search-input{
-    width: 500px;
-    height: 50px;
-    border-radius: 10px;
-}
+    * {
+        font-size: 1.3vw;
+        font-family: "Epilogue", sans-serif;
+      }
+      
+      html {
+        --scrollbarBG: #fff;
+        --thumbBG: #90a4ae;
+      }
+      
+      body {
+        background: black;
+      }
+      body .card {
+        background-color: whitesmoke;
+        border-radius: 20px;
+      }
+      body .card #header {
+        height: 5vw;
+        background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+        padding: 0vw;
+      }
+      body .card #header h1 {
+        color: #fff;
+        font-size: 2vw;
+        font-family: "Finger Paint", cursive;
+        padding: 1vw;
+      }
+      body .card #message-section::-webkit-scrollbar {
+        width: 10px;
+      }
+      body .card #message-section {
+        height: 32vw;
+        padding: 0 2.5vw;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+      }
+      body .card #message-section::-webkit-scrollbar-track {
+        background: var(--scrollbarBG);
+      }
+      body .card #message-section::-webkit-scrollbar-thumb {
+        background-color: var(--thumbBG);
+        border-radius: 6px;
+        border: 3px solid var(--scrollbarBG);
+      }
+      body .card #message-section #bot,
+      body .card #message-section #user {
+        position: relative;
+        bottom: 0;
+        min-height: 1.5vw;
+        border: 0.15vw solid #777;
+        background-color: #fff;
+        border-radius: 0px 1.5vw 1.5vw 1.8vw;
+        padding: 1vw;
+        margin: 1.5vw 0;
+      }
+      body .card #message-section #user {
+        border: 1.5px solid #000;
+        border-radius: 1.5vw 0vw 1.5vw 1.8vw;
+        background-color: #000;
+        float: right;
+      }
+      body .card #message-section #user #user-response {
+        color: #fff;
+      }
+      body .card #message-section .message {
+        color: #000;
+        clear: both;
+        line-height: 1.2vw;
+        font-size: 1.2vw;
+        padding: 8px;
+        position: relative;
+        margin: 8px 0;
+        max-width: 85%;
+        word-wrap: break-word;
+        z-index: 2;
+      }
+      body .card #input-section {
+        
+        padding: 0 ;
+        display: flex;
+        flex-direction: row;
+        align-items:flex-end;
+        height: 6vw;
+        width: 100%;
+      }
+      body .card #input-section input {
+        color: #000;
+        min-width: 90vw;
+        outline: none;
+        height: 5vw;
+        width: 26vw;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: solid #000 0.1vw;
+      }
+      body .card .send {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        flex: 0 0 auto;
+        margin-left: 0;
+        padding: 0;
+        position: relative;
+        outline: none;
+      }
+      body .card .send .circle {
+        position: relative;
+        width: 4.8vw;
+        height: 4.8vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      body .card .send .circle i {
+        font-size: 3vw;
+        margin-left: -1vw;
+        margin-top: 1vw;
+      }
 
-.search-button{
-    width: 100px;
-    height: 50px;
-    border-radius: 10px;
-}
+      .d-flex justify-content-center{
+        background-color:#000;
+      }
+
+      
