@@ -1,0 +1,97 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Post {
+  id        String   @default(cuid()) @id
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+}
+
+model User {
+  id        String   @default(cuid()) @id
+  email     String?  @unique
+  password  String   // Assuming you store hashed passwords
+  //isAdmin   Boolean  @default(false)
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  posts     Post[]
+  studentId String?  @unique
+  societyId String?  @unique
+  student   Student? @relation(fields: [studentId], references: [id])
+  society   Society? @relation(fields: [societyId], references: [id])
+  @@map(name: "users")
+}
+
+enum UserType {
+  STUDENT
+  SOCIETY_ADMIN
+}
+
+model Student {
+  id        String          @default(cuid()) @id
+  userId    String?         @unique
+  user      User?           @relation()
+  name      String?
+  email     String?         @unique
+  createdAt DateTime        @default(now()) @map(name: "created_at")
+  updatedAt DateTime        @updatedAt @map(name: "updated_at")
+  societies StudentSociety[]
+  @@map(name: "students")
+}
+
+model Society {
+  id        String          @default(cuid()) @id
+  userId    String?         @unique
+  user      User?           @relation()
+  name      String
+  createdAt DateTime        @default(now()) @map(name: "created_at")
+  updatedAt DateTime        @updatedAt @map(name: "updated_at")
+  students  StudentSociety[]
+  societies EventSociety[]
+  @@map(name: "societies")
+}
+
+model StudentSociety {
+  student   Student         @relation(fields: [studentId], references: [id])
+  studentId String
+  society   Society         @relation(fields: [societyId], references: [id])
+  societyId String
+  createdAt DateTime        @default(now()) @map(name: "created_at")
+  updatedAt DateTime        @updatedAt @map(name: "updated_at")
+  @@id([studentId, societyId])
+  @@map(name: "student_society")
+}
+
+model Event {
+  id          String         @default(cuid()) @id
+  name        String
+  description String
+  createdAt   DateTime       @default(now()) @map(name: "created_at")
+  updatedAt   DateTime       @updatedAt @map(name: "updated_at")
+  societies   EventSociety[]
+  @@map(name: "events")
+}
+
+model EventSociety {
+  event     Event           @relation(fields: [eventId], references: [id])
+  eventId   String
+  society   Society         @relation(fields: [societyId], references: [id])
+  societyId String
+  @@id([eventId, societyId])
+  @@map(name: "event_society")
+}
+
+
+
