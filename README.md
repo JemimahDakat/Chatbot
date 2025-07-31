@@ -1,11 +1,6 @@
 # UniChat - Event Discovery and Recommendation App
 
 UniChat is a React.js application with a Flask backend designed to help users find and explore events in their area. By leveraging GPT-4, the app provides personalized event suggestions based on user preferences. Currently, the database uses dummy data as it's not yet fully set up.
-
-## Demo Video
-
-[Watch the Demo](https://drive.google.com/file/d/1phZje-oKd3xT4Jcrp2TOIodcbmSIidRx/view?usp=sharing)
-
 ## Table of Contents
 
 - [Features](#features)
