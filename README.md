@@ -63,7 +63,7 @@ UniChat is a React.js application with a Flask backend designed to help users fi
 #### Clone the Repository
 
 ```bash
-git clone https://github.com/marwanosman505/ibmHackathon.git
+git clone https://https://github.com/JemimahDakat/Chatbot
 cd ibmHackathon
 ```
 
@@ -118,11 +118,4 @@ npm start
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-**Developer**: Marwan Osman  
-**Email**: [marwanosman505@gmail.com](mailto:marwanosman505@gmail.com)  
-**GitHub**: [marwanosman505](https://github.com/marwanosman505)  
-**LinkedIn**: [Marwan Osman](https://www.linkedin.com/in/marwan-osman-5b9b88209/)
 
